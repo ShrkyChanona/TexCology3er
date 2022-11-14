@@ -16,23 +16,140 @@
     background: #D9D9D9;
 }
 .apellido{
-    /* name */
+    /* apellido */
     position: absolute;
     width: 175px;
     height: 29px;
-    left: 545px;
+    left: 615px;
     top: 212px;
     
     background: #D9D9D9;
 }
 
+.divLabel1{
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 630px;
+}
+
 .correo{
-    /* name */
+    /* correo */
     position: absolute;
     width: 175px;
     height: 29px;
-    left: 745px;
+    left: 815px;
     top: 212px;
     
     background: #D9D9D9;
+}
+
+.divLabel2{
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 860px;
+}
+
+.sucursal{
+    /* lugar */
+    position: absolute;
+    width: 235px;
+    height: 29px;
+    top: 30px;    
+    background: #D9D9D9;
+}
+
+.divLabel3{
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 270px;
+    top: 280px;
+}
+
+.fecha{
+    /* fecha */
+    position: absolute;
+    width: 275px;
+    height: 29px;
+    left: 850px;
+    top: 309px;    
+    background: #D9D9D9;
+}
+
+.divLabel4{
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 860px;
+    top: 283px;
+}
+
+.inferiores{
+    /* inferiores */
+    position: absolute;
+    width: 150px;
+    height: 29px;
+    left: 365px;
+    top: 495px;
+    background: #D9D9D9;
+}
+
+.divLabel5{
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 395px;
+    top: 433px;
+}
+
+.superiores{
+    /* superiores */
+    position: absolute;
+    width: 150px;
+    height: 29px;
+    left: 665px;
+    top: 495px;
+    background: #D9D9D9;
+}
+
+.divLabel6{
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    left: 625px;
+    top: 433px;
+}
+
+.paqueteria{
+    /* paqueteria */
+    position: absolute;
+    width: 150px;
+    height: 29px;
+    top: 495px;
+    background: #D9D9D9;
+}
+
+.divLabel7{
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    left: 930px;
+    top: 440px;
+}
+
+.comentario{
+    /* comentario */
+    position: absolute;
+    left: 620px;
+    top: 545px;
+    background: #D9D9D9;
+}
+
+.button{
+    /* comentario */
+    position: absolute;
+    left: 710px;
+    top: 805px;
 }
