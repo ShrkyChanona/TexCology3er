@@ -1,0 +1,28 @@
+.bienvenida{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 5%;
+    align-content: flex-end;
+}
+
+.fondo{
+    background-color: #B1EFCB;
+}
+
+.eslog{
+    height: 40vh;
+}
+
+.texe{
+    color: #30d895;
+    font-style: bold;
+}
+
+.but{
+    background-color: #30d895;;
+    margin-top: 20%;
+    color: aliceblue;
+    width: 100%;
+}

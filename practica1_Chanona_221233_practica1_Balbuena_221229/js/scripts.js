@@ -4,11 +4,6 @@ const contactarC = (funcion) =>{
     funcion(id);
 }
 
-const contactarY = (funcion) =>{
-    id = document.getElementById("Yamili").title; //obtenemos el id del contacto
-    funcion(id);
-}
-
 const contactarA = (funcion) =>{
     id = document.getElementById("Alan").title; //obtenemos el id del contacto
     funcion(id);
@@ -17,18 +12,11 @@ const contactarA = (funcion) =>{
 
 const datos = (id) => {
     if(id == document.getElementById("Chanona").title){
-        window.location.href =  `#${id}`;
+        window.location.href =  `#${id}`; // localiza el id que contiene el variable id
         document.getElementById("foto").className = "fotoC"
         document.getElementById("info").className = "info"
         document.getElementById("mstContactoElegido").value = "Carlos Eduardo Chanona Aquino" + "\n" +
         "facebook:" + "\n" + "Carlos Chanona" + "\n" + "instagram:" + "Carlos Chanona" + "\n" + "numero telefonico:" + "\n" + "961 430 93 61";
-    }
-    else if(id == document.getElementById("Yamili").title){
-        window.location.href =  `#${id}`;// localiza el id que contiene el variable id
-        document.getElementById("foto").className = "fotoY"
-        document.getElementById("info").className = "info"
-        document.getElementById("mstContactoElegido").value = "Yamili Gomez Salas" + "\n" +
-        "facebook:" + "\n" + "Yami Sukehiro" + "\n" + "instagram:" + "Yamili GS" + "\n" + "numero telefonico:" + "\n" + "961 610 04 20";
     }
     else if(document.getElementById("Alan").title){
         window.location.href =  `#${id}`;

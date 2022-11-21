@@ -1,0 +1,42 @@
+.btn-nav{
+    width: 105%;
+    height: 6vh;
+    border-radius: 20px;
+    background-color: #C3C1C1;
+    font-family: monospace;
+}
+
+.conte{
+    word-wrap: break-word;
+}
+
+.btn-d{
+    width: 40%;
+    height: 6vh;
+    border-radius: 20px;
+    background-color: #C3C1C1;
+    font-family: monospace;
+    margin-top: 10%;
+}
+
+.bor{
+    border: solid 1px black;
+}
+
+.pubox{
+    margin-top: 4%;
+    background-color: rgb(106, 255, 185);
+    height: 70vh;
+    border-radius: 20px;
+}
+
+.textoB{
+    margin-top: 2%;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.parrafo{
+    font-size: 1.3rem;
+    font-family: 'Arial' ;
+}

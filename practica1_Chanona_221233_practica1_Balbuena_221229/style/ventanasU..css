@@ -1,0 +1,13 @@
+.fondo{
+    background-color: #71f6f8;
+    width: 100vw;
+    height: 47vh;
+}
+
+.empujon{
+    margin-top: 2%;
+}
+
+.btn-color:hover{
+    background: rgb(0, 255, 64);
+}
