@@ -1,0 +1,58 @@
+a{
+    color: blue;
+    text-decoration: none;
+}
+.nab{
+    background-color: #D9D9D9;;
+    margin-top: 2%;
+}
+
+.header-p{
+    background-color: #8ddfe3;
+    border-radius: 15px;
+    margin-top: 2%;
+}
+
+.logo{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.logo-home{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 70%;
+    width: 22%;
+    height: 22%;
+}
+
+.text{
+    font-family: cursive;
+    font-style: oblique;
+}
+
+.mt{
+    margin-top: 5%;
+}
+
+.ml{
+    margin-left: 5%;
+}
+
+.botones{
+    background-color: #D9D9D9;
+    border-color: black;
+    color: black;
+}
+
+.campos-bg{
+    background-color: #D9D9D9;
+}
+
+.btn-font:hover{
+    background: rgb(106, 255, 185);
+}
+
+.borde{
+    border: 2px solid;
+}

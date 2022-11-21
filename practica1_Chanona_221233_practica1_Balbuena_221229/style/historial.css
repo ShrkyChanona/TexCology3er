@@ -1,0 +1,40 @@
+.nav-h{
+    background-color:  #8ddfe3;
+    margin-top: 2%;
+}
+
+.regresar{
+    margin-left: 10%;
+}
+
+.textoP{
+    margin-left: 6%;
+}
+
+.deco{
+    background-color: #8ddfe3;
+    height: 100vh;
+}
+
+.busqueda{
+    margin-top: 2%;
+    width: 25%;
+}
+
+.status-entregado{
+    color: #10a435;
+    font-size: 1.2rem;
+    margin-left: 1%;
+}
+
+.status-pendiente{
+    color: #decc16;
+    font-size: 1.2rem;
+    margin-left: 1%;
+}
+
+.status-cancelado{
+    color: #de3716;
+    font-size: 1.2rem;
+    margin-left: 1%;
+}

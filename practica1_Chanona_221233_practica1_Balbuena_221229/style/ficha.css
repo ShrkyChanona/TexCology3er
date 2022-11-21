@@ -1,0 +1,17 @@
+.cuadro{
+    background-color: #D9D9D9;
+    height: 65vh;
+    width: 69vh;
+}
+
+.botones-pos-r{
+    margin-left: 70%;
+}
+
+.botones-pos-h{
+    margin-left: 15%;
+}
+
+.empujar{
+    margin-top: 2%;
+}

@@ -5,76 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha</title>
-    <link rel="stylesheet" href="../css/ficha.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/ficha.css">
 </head>
 <body>
-    <div>
-        <h1 class="tittle">TexCology</h1>
-        <h4 class="subTittle">Ficha de asistencia</h4>
-        <h5 class="subTittle2">------Donacion de ropa------</h5>
-    </div>
-
-    <div class="bg">
-        <div class="content">
-            <div class="dataTittle">
-                <h2 class="dataTittle">Donador:</h2>
-                <p class="dataName" id="nombre"></p>
+    <div class="container-fluid">
+        <header class="row justify-content-center">
+            <div class="col-11 header-p">
+                <div class="row align-items-center">
+                    <div class="col-1">
+                        <img src="../assets/tex.png" class="img-fluid logo"> 
+                    </div>
+                    <div class="col-3">
+                        <h2>TexCology</h1>
+                    </div>
+                    <div class="col-2 offset-6">
+                        <a href="Home.html"><img src="../assets/img_info/3643769-building-home-house-main-menu-start_113416 1.png" class="logo-home"></a>
+                    </div>
+                </div>
             </div>
-
-            <div class="dataSubTittle">
-                <h2 class="dataSubTittle">Lugar:</h2>
-                <p class="dataSucursal" id="sucursal"></p>
+        </header>
+        <div class="container">
+            <div class="row text-center">
+                <h1>TexCology</h1>
             </div>
-
-            <div class="dataSubTittle1">
-                <h2 class="dataSubTittle1">Fecha:</h2>
-                <p class="dataFecha" id="fecha"></p>
+            <div class="row text-center">
+                <h4>Comprobante de donación</h4>
             </div>
-
-            <div class="dataSubTittle2">
-                <p class="dataText">Esta ficha te muestra los datos para que <br>
-                    puedas acudir a la sucursal elegida, asi no <br>
-                    tendremos inconvenientes para tu atencion, <br>
-                    te recordamos que la sucursal abre los dias <br> <br>
-                    Lunes-Viernes de 8:00am a 4:30pm <br> <br>
-                    Sabados y Domingos de 9:00am a 2:00pm <br> <br>
-                    para recibir tu donativo
-                </p>
+            <div class="row text-center">
+                <h5>------Ficha donativo------</h5>
             </div>
-            
-            <!--
-                Donador:
-                Ana Karol Gomez Salas
-                
-                Lugar: 
-                La mision.
-                
-                Fecha: 
-                17 de Marzo del 2023
-                
-                En esta ficha te muestra los datos para que 
-                puedas acudir a la sucursal elegida, asi no 
-                tendremos inconvenientes para tu atencion, 
-                te recordamos que la sucursal esta abierta 
-                a partir de los dias
-                
-                Lunes-Viernes de 8:00am a 4:30pm
-                
-                Sabados y Domingos de 9:00am a 2:00pm
-            -->
-            
         </div>
+            <div class="row justify-content-center">
+                <div class="col-6 cuadro borde text-center">
+                    <div class="container">
+                        <div class="row empujar justify-content-center">
+                            <h3>Donador:</h3>
+                            <b id="nombre"></b>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>Lugar:</h3>
+                            <b id="sucursal"></b>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>Fecha:</h3>
+                            <b id="fecha"></b>
+                        </div>
+                        <br>
+                        <div class="row justify-content-center">
+                            <b>
+                                <p>Esta ficha muestra los datos de tu donativo para que <br>
+                                    puedas acudir a la sucursal de tu preferencia <br>
+                                    en caso de alguna aclaración, <br> 
+                                    asi no tendremos inconvenientes para tu atencion, <br>
+                                    te recordamos que la sucursal abre los dias: <br> <br>
+                                    Lunes-Viernes de 8:00am a 4:00pm <br>
+                                    Sabados y Domingos de 9:00am a 2:00pm <br> <br>
+                                    TexCology agradece tu donativo :D
+                                </p>
+                            </b>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row empujar">
+                    <div class="col-6">
+                        <button class="btn borde btn-outline-info botones botones-pos-r" onclick="home()">
+                            Regresar
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn borde btn-outline-info botones botones-pos-h" onclick="historial()">Ver historial</button>
+                    </div>
+                </div>
+            </div>
     </div>
-
-    <div class="btnRegresar">
-        <button><a href="Donacion.html">Regresar</a></button>
-    </div>
-    <div class="btnCerrar">
-        <button>Cerrar</button>
-    </div>
-
-    <h1 id="prendas"></h1>
-    <h1 id="comentario"></h1>
-    <script src="js/registro.js"></script>
+    <script src="../js/registro.js"></script>
+    <script src="../js/redirecciones.js"></script>
 </body>
 </html>

@@ -4,80 +4,497 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donacion</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/Donacion.css">
+    <title>Donación</title> 
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/donacion.css">
 </head>
 <body>
-    <div class="container">
-
-        <form action="Ficha.html" name="Donacion" id="Donacion">
-            <center>
-                <h1>****Registra tu Donacion****</h1>
-                <h4>Los datos son necesarios para la autenticacion del usuario</h4>
-                <h2>Datos del contacto:</h2> <br>
-                <div class="form-group">
-                    <div class="divLabel">
-                        <label><b>Nombre:</b></label>
+    <div class="container-fluid">
+        <header class="row justify-content-center">
+            <div class="col-11 header-p">
+                <div class="row align-items-center">
+                    <div class="col-1">
+                        <img src="../assets/tex.png" class="img-fluid logo"> 
                     </div>
-                    <input type="text" name="nombre" class="name text-center">
-                    <div class="divLabel1">
-                        <label for="" style="margin-left:50px;"><b>Apellido:</b></label>
+                    <div class="col-3">
+                        <h2>TexCology</h1>
                     </div>
-                    <input type="text" name="apellido" class="apellido text-center">
-                    <div class="divLabel2">
-                        <label for="" style="margin-left: 75px;"><b>Correo:</b></label>
-                    </div>
-                    <input type="text" name="correo" class="correo text-center" style="margin-left: 60px;"> <br> <br>
-                </div>
-                
-                <div class="form-group">
-                    <div class="divLabel3">
-                        <label for="" style="margin-left: 100px;"><b>Sucursal</b></label>
-                        <select name="sucursales" class="sucursal text-center">
-                            <option></option>
-                            <option>TexCology 5 de mayo</option>
-                            <option>TexCology parque central</option>
-                            <option>TexCology la mision</option>
-                        </select>   
-                    </div>
-                    
-                    <div class="divLabel4">
-                        <label for="" style="margin-left:110px;"><b>Fecha</b></label>
-                    </div>
-                    <input type="date" name="fecha" id="fecha" class=" fecha text-center">
-                </div>      
-
-                <div style="margin-top: 150px;">
-                    <div class="form-group">
-                        <h2>Datos de las prendas</h2>
-                    </div>
-    
-                    <div class="form-group">
-                        
-                        <div class="divLabel5">
-                            <label for=""><b>Prendas inferiores:</b></label>
-                        </div>
-                        <input type="number" name="prendasI" class="inferiores text-center">
-                        <div class="divLabel6">
-                            <label for="" style="margin-left:80px;"><b>Prendas superiores:</b></label>
-                        </div>
-                        <input type="text" name="prendasS" class="superiores text-center">
-                        <div class="divLabel7">
-                            <label for="" style="margin-left:100px;" class="text-center"><input type="checkbox" checked><b>Paqueteria</b></label>
-                        </div>
-                        
-                        <textarea name="comentario" cols="30" rows="10" class="comentario text-center"></textarea> <br>
-                    </div>
-    
-                    <div class="form-group">
-                        <button type="submit" class="btn button btn-primary btn-sm" name="btnSubmit" id="btnSubmit">confirmar</button>
+                    <div class="col-2 offset-6">
+                        <a href="Home.html"><img src="../assets/img_info/3643769-building-home-house-main-menu-start_113416 1.png" class="logo-home"></a>
                     </div>
                 </div>
-            </center>
-        </form>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row justify-content-center titulo-registro">
+                <div class="col-5">
+                    <h1>****Registra tu Donación****</h1>
+                    <h4 class="text-center">Los datos son necesarios para la autenticación del usuario</h4>
+                </div>
+            </div>
+                <form action="Ficha.html" name="Donacion" id="Donacion">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2 class="text-center">Datos del contacto:</h2>
+                            <div class="row text-center campos-cap2">
+                                <label>
+                                    <b>Nombre(s)</b><br>
+                                    <input type="text" name="nombre" class="text-center">
+                                </label>
+                            </div>
+                            <div class="row text-center campos-cap2">
+                                <label>
+                                    <b class="">Apellido(s)</b> <br>
+                                    <input type="text" name="apellido" class="text-center">
+                                </label>
+                            </div>
+                            <div class="row text-center campos-cap2">
+                                <label>
+                                    <label>
+                                        <b>Correo electronico</b> <br>
+                                        <input type="email" name="correo" class="text-center"> 
+                                    </label>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h2 class="text-center">Datos de las prendas</h2>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <label>
+                                        <!--------------------------PRENDAS SUPERIORES------------------------------------>
+                                        <button type="button" class="btn btn-prendas btn-font" data-bs-toggle="modal" data-bs-target="#Modal-2" data-bs-whatever="">
+                                           <b>Prendas superiores</b>
+                                        </button>
+                                        
+                                        <div class="modal fade" id="Modal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h1 class="modal-title fs-7" id="">Prendas superiores</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body scrollito">
+                                                    <div class="row text-center">
+                                                        <!-- Camisetas -->
+                                                        <label>
+                                                            <b>Camisetas</b>
+                                                            <input type="number" name="camisetas" class="inputs form-control text-center">
+                                                        </label>
+                                                    </div>
+                                                    <div class="row separacion text-center">
+                                                        <div class="col-4">
+                                                            <label>
+                                                               <b>Tipo</b>
+                                                               <select name="camisetaTipo" class="select form-select text-center">
+                                                                    <option></option>
+                                                                    <option>Manga corta</option>
+                                                                    <option>Manga larga</option>
+                                                                    <option>Sin mangas</option>
+                                                                    <option>tirantes</option>
+                                                                    <option>Camisa</option>
+                                                                    <option>Variado</option>
+                                                                </select> 
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label>
+                                                               <b>Talla</b>
+                                                               <select name="camisetaTalla" class="select form-select text-center">
+                                                                    <option></option>
+                                                                    <option>CH</option>
+                                                                    <option>M</option>
+                                                                    <option>G</option>
+                                                                    <option>EG</option>
+                                                                    <option>EEG</option>
+                                                                    <option>Unitalla</option>
+                                                                    <option>Variado</option>
+                                                                </select> 
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label>
+                                                               <b>Para</b>
+                                                               <select name="camisetaGen" class="select form-select text-center">
+                                                                    <option></option>
+                                                                    <option>Dama</option>
+                                                                    <option>Caballero</option>
+                                                                    <option>Unisex</option>
+                                                                    <option>Variado</option>
+                                                                </select> 
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                        
+                                                    <!-- Blusas -->
+                                                    <div class="row text-center">
+                                                        <label>
+                                                            <b>Blusas</b>
+                                                             <input type="number" name="blusas" class="inputs form-control text-center">
+                                                         </label>
+                                                    </div>
+                                                        <div class="row separacion text-center">
+                                                            <div class="col-6">
+                                                                <label>
+                                                                   <b>Tipo</b>
+                                                                   <select name="blusaTipo" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>Cuello cuadrado</option>
+                                                                        <option>Cuello de tortuga</option>
+                                                                        <option>Cuello en V</option>
+                                                                        <option>Cruzado</option>
+                                                                        <option>Crop top</option>
+                                                                        <option>Escotado</option>
+                                                                        <option>Hombros descubiertos</option>
+                                                                        <option>Hombro descubierto</option>
+                                                                        <option>Top sin mangas</option>
+                                                                        <option>Tirantes</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <label>
+                                                                   <b>Talla</b>
+                                                                   <select name="blusaTalla" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>CH</option>
+                                                                        <option>M</option>
+                                                                        <option>G</option>
+                                                                        <option>EG</option>
+                                                                        <option>EEG</option>
+                                                                        <option>Unitalla</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                        
+                                                        <!--Abrigos-->
+                                                        <div class="row text-center">
+                                                            <label>
+                                                                <b>Abrigos</b>
+                                                                 <input type="number" name="abrigos" class="inputs form-control text-center">
+                                                             </label>
+                                                        </div>
+                                                            <div class="row separacion text-center">
+                                                                <div class="col-4">
+                                                                    <label>
+                                                                       <b>Tipo</b>
+                                                                       <select name="abrigoTipo" class="select form-select text-center">
+                                                                            <option></option>
+                                                                            <option>Abrigo</option>
+                                                                            <option>Chamarra</option>
+                                                                            <option>Chaleco</option>
+                                                                            <option>Chaqueta</option>
+                                                                            <option>Sueter</option>
+                                                                            <option>Sudaderas</option>
+                                                                            <option>Saco</option>
+                                                                            <option>Variado</option>
+                                                                        </select> 
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label>
+                                                                       <b>Talla</b>
+                                                                       <select name="abrigoTalla" class="select form-select text-center">
+                                                                            <option></option>
+                                                                            <option>CH</option>
+                                                                            <option>M</option>
+                                                                            <option>G</option>
+                                                                            <option>EG</option>
+                                                                            <option>EEG</option>
+                                                                            <option>Unitalla</option>
+                                                                            <option>Variado</option>
+                                                                        </select> 
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label>
+                                                                       <b>Para</b>
+                                                                       <select name="abrigoGen" class="select form-select text-center">
+                                                                            <option></option>
+                                                                            <option>Dama</option>
+                                                                            <option>Caballero</option>
+                                                                            <option>Unisex</option>
+                                                                            <option>Variado</option>
+                                                                        </select> 
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                        
+                                                            <!-- Vestidos -->
+                                                        <div class="row text-center">
+                                                            <label>
+                                                                <b>Vestidos</b>
+                                                                 <input type="number" name="vestidos" class="inputs form-control text-center" id="Calzado">
+                                                             </label>
+                                                        </div>
+                                                            <div class="row separacion text-center">
+                                                                <div class="col-6">
+                                                                    <label>
+                                                                       <b>Tipo</b>
+                                                                       <select name="vestidoTipo" class="select form-select text-center">
+                                                                            <option></option>
+                                                                            <option>Corto</option>
+                                                                            <option>Hombros descubierto</option>
+                                                                            <option>Largo</option>
+                                                                            <option>Pegado</option>
+                                                                            <option>Tirantes</option>
+                                                                            <option>Tira cruzada</option>
+                                                                            <option>Variado</option>
+                                                                        </select> 
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <label>
+                                                                       <b>talla</b>
+                                                                       <select name="vestidoTalla" class="select form-select text-center">
+                                                                            <option></option>
+                                                                            <option>CH</option>
+                                                                            <option>M</option>
+                                                                            <option>G</option>
+                                                                            <option>EG</option>
+                                                                            <option>EEG</option>
+                                                                            <option>Unitalla</option>
+                                                                        </select> 
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Listo</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </label>
+                                </div> 
+                                
+                                <div class="col-6">
+                                    <label>
+                                        <!--------------------------------PRENDAS INFERIORES ---------------------------------------->
+                                        <button type="button" class="btn btn-prendas btn-font" data-bs-toggle="modal" data-bs-target="#Modal">
+                                           <b>Prendas inferiores</b>
+                                        </button>
+                                    
+                                        <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h1 class="modal-title fs-7" id="exampleModalLabel">Prendas inferiores</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body scrollito">
+                                                    <div class="row text-center">
+                                                        <!-- pantalones -->
+                                                        <label>
+                                                            <b>Pantalones</b>
+                                                            <input type="number" name="pantalones" class="inputs form-control text-center">
+                                                        </label>
+                                                    </div>
+                                                    <div class="row separacion text-center">
+                                                        <div class="col-4">
+                                                            <label>
+                                                               <b>Tipo de tela</b>
+                                                               <select name="pantalonTela" class="select form-select text-center">
+                                                                    <option></option>
+                                                                    <option>Mezclilla</option>
+                                                                    <option>Gabardina</option>
+                                                                    <option>Algodon</option>
+                                                                    <option>Jersey</option>
+                                                                    <option>Terciopelo</option>
+                                                                    <option>Variado</option>
+                                                                </select> 
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label>
+                                                               <b>Talla cross</b>
+                                                               <select name="pantalonTalla" class="select form-select text-center">
+                                                                    <option></option>
+                                                                    <option>25-26</option>
+                                                                    <option>28-30</option>
+                                                                    <option>32-34</option>
+                                                                    <option>36-38</option>
+                                                                    <option>40-42</option>
+                                                                    <option>44-46</option>
+                                                                    <option>Unitalla</option>
+                                                                    <option>Variado</option>
+                                                                </select> 
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label>
+                                                               <b>Para</b>
+                                                               <select name="pantalonGenero" class="select form-select text-center">
+                                                                    <option></option>
+                                                                    <option>Dama</option>
+                                                                    <option>Caballero</option>
+                                                                    <option>Unisex</option>
+                                                                    <option>Variado</option>
+                                                                </select> 
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <!-- short -->
+                                                    <div class="row text-center">
+                                                        <label>
+                                                            <b>Shorts</b>
+                                                             <input type="number" name="shorts" class="inputs form-control text-center">
+                                                         </label>
+                                                    </div>
+                                                        <div class="row separacion text-center">
+                                                            <div class="col-4">
+                                                                <label>
+                                                                   <b>Tipo de tela</b>
+                                                                   <select name="shortTela" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>Mezclilla</option>
+                                                                        <option>Seda</option>
+                                                                        <option>Licra</option>
+                                                                        <option>Poliester</option>
+                                                                        <option>Lino</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label>
+                                                                   <b>Talla</b>
+                                                                   <select name="shortTalla" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>CH</option>
+                                                                        <option>M</option>
+                                                                        <option>G</option>
+                                                                        <option>EG</option>
+                                                                        <option>EEG</option>
+                                                                        <option>Unitalla</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label>
+                                                                   <b>Para</b>
+                                                                   <select name="shortGenero" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>Dama</option>
+                                                                        <option>Caballero</option>
+                                                                        <option>Variado</option>
+                                                                        <option>Unisex</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!--Calzado-->
+                                                        <div class="row text-center">
+                                                            <label>
+                                                                <b>Pares de Calzado</b>
+                                                                 <input type="number" name="calzados" class="inputs form-control text-center">
+                                                             </label>
+                                                        </div>
+                                                        <div class="row separacion text-center">
+                                                            <div class="col-4">
+                                                                <label>
+                                                                   <b>Clasificación</b>
+                                                                   <select name="calzadoClasi" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>Alpargata</option>
+                                                                        <option>Botas</option>
+                                                                        <option>Botin</option>
+                                                                        <option>Chancla</option>
+                                                                        <option>Huarache</option>
+                                                                        <option>Sandalias</option>
+                                                                        <option>Tenis</option>
+                                                                        <option>Zapatos</option>
+                                                                        <option>Zapatilla</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label>
+                                                                   <b>Talla en centimetros</b>
+                                                                   <select name="calzadoNum" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>21-23</option>
+                                                                        <option>23.5-25</option>
+                                                                        <option>25.5-27</option>
+                                                                        <option>27.5-29</option>
+                                                                        <option>29.5-31</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label>
+                                                                   <b>Para</b>
+                                                                   <select name="calzadoGen" class="select form-select text-center">
+                                                                        <option></option>
+                                                                        <option>Dama</option>
+                                                                        <option>Caballero</option>
+                                                                        <option>Unisex</option>
+                                                                        <option>Variado</option>
+                                                                    </select> 
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Listo</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </label>
+                                </div>
+                               
+                            </div>
+
+                            <div class="row campos-cap text-center">
+                                <div class="col-3 camp-sucursal">
+                                    <label>
+                                        <b>Sucursal</b>
+                                        <select name="sucursales" class="text-center borde campos-bg">
+                                            <option></option>
+                                            <option>TexCology 5 de mayo</option>
+                                            <option>TexCology parque central</option>
+                                            <option>TexCology la mision</option>
+                                        </select> 
+                                    </label> 
+                               </div>
+                                <div class="col-3 campo-fecha">
+                                    <label>
+                                        <b>Fecha</b>
+                                        <input type="date" name="fecha" id="fecha" class="text-center">
+                                        </label>
+                                </div>
+                           </div>
+                           
+                           <div class="row text-center campos-cap">
+                                <div class="col">
+                                    <label>
+                                        <b>Comentario adicional</b><br>
+                                        <textarea name="comentario" cols="30" rows="10" class="camp-mensaje text-center borde campos-bg" placeholder="Acompaña tu donativo con un mensaje para quien lo reciba"></textarea>
+                                    </label>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-font campos-bg borde btn-sm" id="btnSubmit"><b>confirmar</b></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <script src="js/registro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="../js/registroD.js"></script>
 </body>
 </html>
