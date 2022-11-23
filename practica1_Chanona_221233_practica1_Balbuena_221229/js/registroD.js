@@ -55,10 +55,10 @@ window.addEventListener('load', (e) => {
         const RegEx = /[+]/g
         //remplaza todos los caracteres '+' por un espacio
         let donante = nombreCompleto.replace(RegEx," "),
-            email = params.correo.replace(RegEx," "),
+            //email = params.correo.replace(RegEx," "),
             lugar = params.sucursales.replace(RegEx," "),
-            dia = params.fecha.replace(RegEx," "),
-            mensaje = params.comentario.replace(RegEx," ");
+            dia = params.fecha.replace(RegEx," ");
+            //mensaje = params.comentario.replace(RegEx," ");
 
         let camisa = params.camisetaTipo.replace(RegEx," "),
             blusa = params.blusaTipo.replace(RegEx," "),
