@@ -1,4 +1,4 @@
-const {createPool} = require('mysql')
+const {createPool} = require('mysql') //metodo createpool del modulo mysql
 
 const pool = createPool({
     host: "localhost",

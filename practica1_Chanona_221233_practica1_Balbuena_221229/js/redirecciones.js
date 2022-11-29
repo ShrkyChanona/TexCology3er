@@ -52,6 +52,6 @@ window.addEventListener('load', async () => {
     const urlInfo = await fetch('http://localhost:4000/api/texcology')
     const info = await urlInfo.json()
 
-    const appName = document.querySelector('#appName')
-    appName.innerHTML = info[0].nombre
+    /*const appName = document.querySelector('#appName')
+    appName.innerHTML = info[0].nombre*/
 })
