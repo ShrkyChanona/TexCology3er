@@ -1,10 +1,10 @@
-const express = require('express')
+const express = require('express') //importando el modulo
 const config = require('./config')
 const texcology = require('./rutas')
-const app = express();
+const app = express(); //funcion del modulo express
 
 //configuracion
-app.set('port', config.app.port)
+app.set('port', config.app.port) //estableciendo el puerto 4000
 
 // rutas
 app.use((req, res, next) => {
