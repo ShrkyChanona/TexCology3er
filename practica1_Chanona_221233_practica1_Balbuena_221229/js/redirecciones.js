@@ -22,9 +22,11 @@ const iniciarSesion = async () => {
     })
         .then(async (response) => {
             if(response){
-                const usuario = await response.json()
-                console.log(usuario[0])
-                if(usuario[0]){
+                const listaUsuario = await response.json()
+                console.log(listaUsuario.length)
+                console.log(listaUsuario[0])
+                if(listaUsuario[0]){
+                    sessionStorage.infoUsuario = JSON.stringify(listaUsuario[0])
                     window.location.href = "../html/home.html";
                 }
             }
@@ -48,10 +50,10 @@ const ayuda = () => {
 }
 
 
-window.addEventListener('load', async () => {
+/*window.addEventListener('load', async () => {
     const urlInfo = await fetch('http://localhost:4000/api/texcology')
     const info = await urlInfo.json()
 
-    /*const appName = document.querySelector('#appName')
-    appName.innerHTML = info[0].nombre*/
-})
+    const appName = document.querySelector('#appName')
+    appName.innerHTML = info[0].nombre
+})*/

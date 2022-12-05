@@ -1,10 +1,13 @@
+
 window.addEventListener('load', (e) => {
 
-    //URL como parametro
+    if(!sessionStorage.infoUsuario){
+        window.location.href = "../html/index.html";
+    }
+    //URL como parametro para transforarlo a objeto JSON
     const params = queryStringToJSON(window.location.search)
-    //params contiene todas las cadenas de la url
+    //ahora params contiene toda la cadena de la url transformado en json
     console.log(params);
-    generarGuia()
 
     let nombre = document.querySelector("#nombre"),
         correo = document.querySelector("#correo"),
@@ -12,101 +15,251 @@ window.addEventListener('load', (e) => {
         fecha = document.querySelector("#fecha");
         comentario = document.querySelector("#comentario");
 
-        //-------------------------Prendas superiores------------------:
-        //Camisetas
-        let camisetas = document.querySelector("#camisetas"),
-            camisetaTipo = document.querySelector("#camisetaTipo"),
-            camisetaTalla = document.querySelector("#camisetaTalla"),
-            camisetaGen = document.querySelector("#camisetaGen");
-        //Blusas
-        let blusas = document.querySelector("#blusas"),
-            blusaTipo = document.querySelector("#blusasTipo"),
-            blusaTalla = document.querySelector("#blusaTalla");
-        //Abrigos
-        let abrigos = document.querySelector("#abrigos"),
-            abrigoTipo = document.querySelector("#abrigoTipo"),
-            abrigoTalla = document.querySelector("#abrigoTalla"),
-            abrigoGen = document.querySelector("#abrigoGen");
-        //Vestidos
-        let vestidos = document.querySelector("#vestidos"),
-            vestidoTipo = document.querySelector("#vestidoTipo"),
-            vestidoTalla = document.querySelector("#vestidoTalla");
+    let nombreCompleto = params.nombre + " " + params.apellido;
 
-            //-------------------------Prendas Inferiores------------------:
-            //Pantalones
-            let pantalones = document.querySelector("#pantalones"),
-                pantalonTela = document.querySelector("#pantalonTela"),
-                pantalonTalla = document.querySelector("#pantalonTalla"),
-                pantalonGenero = document.querySelector("#pantalonGenero");
-            //Shorts
-            let shorts = document.querySelector("#shorts"),
-                shortTela = document.querySelector("#shortTela"),
-                shortTalla = document.querySelector("#shortTalla"),
-                shortGenero = document.querySelector("#shortGenero");
-            //Calzado
-            let calzados = document.querySelector("#calzados"),
-                calzadoClasi = document.querySelector("#calzadoClasi"),
-                calzadoNum = document.querySelector("#calzadoNum"),
-                calzadoGen = document.querySelector("#calzadoGen");
-
-        let nombreCompleto = params.nombre + " " + params.apellido;
-        
-        //indica el caracter que remplazara
-        const RegEx = /[+]/g
-        //remplaza todos los caracteres '+' por un espacio
-        let donante = nombreCompleto.replace(RegEx," "),
-            //email = params.correo.replace(RegEx," "),
-            lugar = params.sucursales.replace(RegEx," "),
-            dia = params.fecha.replace(RegEx," ");
-            //mensaje = params.comentario.replace(RegEx," ");
-
-        let camisa = params.camisetaTipo.replace(RegEx," "),
-            blusa = params.blusaTipo.replace(RegEx," "),
-            abrigo = params.abrigoTipo.replace(RegEx," "),
-            vestido = params.vestidoTipo.replace(RegEx," ");
+    //indica el caracter que remplazara
+    const RegEx = /[+]/g
+    //remplaza todos los caracteres '+' por un espacio
+    let donante = nombreCompleto.replace(RegEx, " "),
+        email = params.correo.replace(RegEx," "),
+        lugar = params.sucursales.replace(RegEx, " "),
+        dia = params.fecha.replace(RegEx, " ");
+        mensaje = params.comentario.replace(RegEx," ");
 
 
     nombre.innerHTML = nombre.innerHTML.replace('', `${donante}` || 'sin nombres');
     sucursal.innerHTML = sucursal.innerHTML.replace('', `${lugar}`);
     fecha.innerHTML = fecha.innerHTML.replace('', `${dia}`);
+
+    //----------------Registro de las prendas Superiores----------------
+
+    //Camisetas
+    let camisetas = document.querySelector("#camisetas"),
+        camisetaTipo = document.querySelector("#camisetaTipo"),
+        camisetaTalla = document.querySelector("#camisetaTalla"),
+        camisetaGen = document.querySelector("#camisetaGen");
+
+    let camisa = params.camisetaTipo.replace(RegEx, " "),
+        cCantidad = params.camisetas,
+        cTalla = params.camisetaTalla,
+        cGen = params.camisetaGen;
+
+    const tabla_camiseta = { camisa, cTalla, cGen, cCantidad }
+    fetch('http://localhost:4000/api/texcology/registrarCamisas', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(tabla_camiseta),
+    })
+        .then(async (response) => {
+            if (response) {
+                const tabla_camiseta = await response.json();
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+    //Abrigos
+    let abrigos = document.querySelector("#abrigos"),
+        abrigoTipo = document.querySelector("#abrigoTipo"),
+        abrigoTalla = document.querySelector("#abrigoTalla"),
+        abrigoGen = document.querySelector("#abrigoGen");
+
+    let aCantidad = params.abrigos,
+        aTalla = params.abrigoTalla,
+        aTipo = params.abrigoTipo.replace(RegEx, " "),
+        aGen = params.abrigoGen;
+
+    const tabla_abrigos = { aCantidad, aTalla, aTipo, aGen }
+    fetch('http://localhost:4000/api/texcology/registrarAbrigos', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(tabla_abrigos),
+    })
+        .then(async (response) => {
+            if (response) {
+                const tabla_abrigos = await response.json();
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+    //Blusas
+    let blusas = document.querySelector("#blusas"),
+        blusaTipo = document.querySelector("#blusasTipo"),
+        blusaTalla = document.querySelector("#blusaTalla");
+
+    let bluCantidad = params.blusas,
+        bluTipo = params.blusaTipo.replace(RegEx, " "),
+        bluTalla = params.blusaTalla;
     
-})
+        const tabla_blusas = { bluCantidad, bluTalla, bluTipo }
+        fetch('http://localhost:4000/api/texcology/registrarBlusas', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(tabla_blusas),
+        })
+            .then(async (response) => {
+                if (response) {
+                    const tabla_blusas = await response.json();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    
+    //Vestidos
+    let vestidos = document.querySelector("#vestidos"),
+        vestidoTipo = document.querySelector("#vestidoTipo"),
+        vestidoTalla = document.querySelector("#vestidoTalla");
+    
+    let vesCantidad = params.vestidos,
+        vesTipo = params.vestidoTipo.replace(RegEx, " "),
+        vesTalla = params.vestidoTalla;
+
+        const tabla_vestidos = { vesCantidad, vesTalla, vesTipo }
+        fetch('http://localhost:4000/api/texcology/registrarVestidos', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(tabla_vestidos),
+        })
+            .then(async (response) => {
+                if (response) {
+                    const tabla_vestidos = await response.json();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    //-------------------------Registro de las prendas Inferiores------------------:
+
+    //Pantalones
+    let pantalones = document.querySelector("#pantalones"),
+        pantalonTela = document.querySelector("#pantalonTela"),
+        pantalonTalla = document.querySelector("#pantalonTalla"),
+        pantalonGenero = document.querySelector("#pantalonGenero");
+
+    let panCantidad = params.pantalones,
+        panTela = params.pantalonTela,
+        panTalla = params.pantalonTalla,
+        panGen = params.pantalonGenero;
+
+        const tabla_pantalones = { panCantidad, panTalla, panGen, panTela }
+        fetch('http://localhost:4000/api/texcology/registrarPantalones', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(tabla_pantalones),
+        })
+            .then(async (response) => {
+                if (response) {
+                    const tabla_pantalones = await response.json();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+    //Shorts
+    let shorts = document.querySelector("#shorts"),
+        shortTela = document.querySelector("#shortTela"),
+        shortTalla = document.querySelector("#shortTalla"),
+        shortGenero = document.querySelector("#shortGenero");
+
+    let shCantidad = params.shorts,
+        shTalla = params.shortTalla,
+        shTela = params.shortTela,
+        shGen = params.shortGenero;
+    
+        const tabla_shorts = { shCantidad, shTalla, shGen, shTela }
+        fetch('http://localhost:4000/api/texcology/registrarShorts', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(tabla_shorts),
+        })
+            .then(async (response) => {
+                if (response) {
+                    const tabla_shorts = await response.json();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    
+    //Calzado
+    let calzados = document.querySelector("#calzados"),
+        calzadoClasi = document.querySelector("#calzadoClasi"),
+        calzadoNum = document.querySelector("#calzadoNum"),
+        calzadoGen = document.querySelector("#calzadoGen");
+
+    let calTalla = params.calzadoNum,
+        calGen = params.calzadoGen,
+        calTipo = params.calzadoClasi,
+        calPares = params.calzados;
+
+        const tabla_calzados = { calTalla, calGen, calTipo,calPares }
+        fetch('http://localhost:4000/api/texcology/registrarCalzados', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(tabla_calzados),
+        })
+            .then(async (response) => {
+                if (response) {
+                    const tabla_calzados = await response.json();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    
+    //-------------------------Registro de Accesorios------------------:
+    let accesorios = document.querySelector('accesorios'),
+        acceClasi = document.querySelector('acceClasi');
+
+    let acceCantidad= params.accesorios,
+        acceTipo = params.acceClasi;
+
+        const tabla_accesorios = { acceTipo, acceCantidad }
+        fetch('http://localhost:4000/api/texcology/registrarAccesorios', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(tabla_accesorios),
+        })
+            .then(async (response) => {
+                if (response) {
+                    const tabla_accesorios = await response.json();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+});
 
 function queryStringToJSON(queryString) {
-    if(queryString.indexOf('?') > -1){ //devuelve el numero de indice por la primera instancia del caracter
-      queryString = queryString.split('?')[1]; //buscamos y nos quedamos con todo menos sin el ? (genera un arreglo separadas por donde iba el ?)
+    if (queryString.indexOf('?') > -1) { //devuelve el numero de indice por la primera instancia del caracter
+        queryString = queryString.split('?')[1]; //buscamos y nos quedamos con todo menos sin el ? (genera un arreglo separadas por donde iba el ?)
     }
-    let pairs = queryString.split('&'); //buscamos y separamos parametros por & (remplaza el arreglo pero ahora separados por &)
+    let pairs = queryString.split('&'); //buscamos y separamos parametros por & (remplaza el arreglo pero ahora separados por donde iba &)
     let result = {};
-    pairs.forEach(function(pair) { //callback
-      pair = pair.split('='); //busca y por cada parametro separa, separa cuando encuentre el '=' (remplaza el arreglo)
-      result[pair[0]] = decodeURIComponent(pair[1] || ''); //el primer elemento
+    pairs.forEach(function (pair) { //callback
+        pair = pair.split('='); //busca y por cada parametro separa, separa cuando encuentre el '=' (remplaza el arreglo)
+        result[pair[0]] = decodeURIComponent(pair[1] || ''); //el primer elemento
     });
     return result;
-  }
-
-  //genera numeros de rastreo
-function generarGuia(){
-    const codigo = ['0','1','2','3','4','5','6','7','8','9',
-                    'A','B','C','D','E','F','a','b','c','d','e','f','g']
-
-    let guia = "";
-    let codigoGuia = "";
-    let guiaRedu = [];
-
-    //Ordenamiento fisher-yates
-      for(let i = codigo.length-1 ; i > 0 ;i--){
-          let j = Math.floor(Math.random() * (i + 1)); //random index
-          [codigo[i],codigo[j]] = [codigo[j],codigo[i]]; // intercambio
-          guia += codigo.pop();
-      } 
-      console.log(guia)
-      //separar la cadena anterior
-      const splitCode = guia.split("");
-      //reducir la cadena
-      for(let i = 0; i < 6; i++){
-        guiaRedu.push(splitCode.shift());
-        codigoGuia += guiaRedu.pop();
-      }
-      console.log(codigoGuia)
 }
