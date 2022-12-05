@@ -6,7 +6,7 @@ function recoger(){
         password = document.getElementById("password").value,
         passwordV = document.getElementById("passwordV").value;
         
-        const usuarioNew = { name,lastName, correo, password }
+        const usuarioNew = { name,lastName, user , correo, password }
         fetch('http://localhost:4000/api/texcology/registrarUsuario', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -23,4 +23,6 @@ function recoger(){
             .catch((error) => {
                 console.error('Error:', error);
             });
+
+        window.location.href = "../html/index.html";
 }
