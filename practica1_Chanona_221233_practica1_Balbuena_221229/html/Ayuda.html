@@ -1,16 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayuda</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<title>Ayuda</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/global.css">
+	<link rel="stylesheet" href="../style/ayuda.css">
 </head>
 <body>
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<div class="container-fluid">
+        <header class="row justify-content-center">
+            <div class="col-11 header-p">
+                <div class="row align-items-center">
+                    <div class="col-1">
+                        <img src="../assets/tex.png" class="img-fluid logo">
+                    </div>
+                    <div class="col-2 text">
+                        <h2>TexCology</h2>
+                    </div>
+                    <div class="col-6 text-center text">
+                        <h1>Ayuda al usuario</h1>
+                    </div>
+                    <div class="col-3 offset">
+                        <a href="Home.html">
+                            <img src="../assets/img_info/3643769-building-home-house-main-menu-start_113416 1.png" class="logo-home">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+	</div>
+
+	<main>
+		<h1 class="titulo">Preguntas Frecuentes</h1>
+		<div class="categorias" id="categorias">
+			<div class="categoria activa" data-categoria="metodos-pago">
+				
+				<p>¿Qué es TexCology?</p>
+			</div>
+			<div class="categoria" data-categoria="entregas">
+				
+				<p>¿Comó puedo hacer una donación?</p>
+			</div>
+			<div class="categoria" data-categoria="seguridad">
+				
+				<p>¿Donde puedo ver el historial de 
+                    mis donaciones</p>
+			</div>
+			<div class="categoria" data-categoria="cuenta">
+				
+				<p>¿Comó cancelar una donación?</p>
+			</div>
+		</div>
+
+		<div class="preguntas">
+
+			<div class="contenedor-preguntas activo" data-categoria="metodos-pago">
+				<div class="contenedor-pregunta">
+					<p class="pregunta">¿Qué es? <img src="" alt="" />Click</p>
+					<p class="respuesta">En la pagina principal podemos observar  un apartado de Sobre Nosotros,  en esa seccion podemos concocer informacion sobre texcology.</p>
+				</div>
+			</div>
+
+			<div class="contenedor-preguntas" data-categoria="entregas">
+				<div class="contenedor-pregunta">
+					<p class="pregunta">¿Como hacer una donación? <img src="" alt="" />Click</p>
+					<p class="respuesta">En nuestra pagina principal existe un apartado con un boton de nombre hacer donacion, con esto podemos realizar las donaciones necesarias</p>
+				</div>
+				
+			</div>
+
+			<div class="contenedor-preguntas" data-categoria="seguridad">
+				<div class="contenedor-pregunta">
+					<p class="pregunta">¿Como ver su Historial? <img src="" alt="" />Click</p>
+					<p class="respuesta">Una vez dentro de la aplicación, encontraras el 
+                        apartado de >historial< donde se puede
+                        visualizar el historial de tus donativos.</p>
+				</div>
+			</div>
+
+			<div class="contenedor-preguntas" data-categoria="cuenta">
+				<div class="contenedor-pregunta">
+					<p class="pregunta">¿Comó cancelar una donación? <img src="" alt="" />Click</p>
+					<p class="respuesta">Por el momento esta funcionalidad no se encuentra disponible pero esperamos que en futuras actualizaciones se logre añadir.</p>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="../js/ayuda.js"></script>
 </body>
 </html>

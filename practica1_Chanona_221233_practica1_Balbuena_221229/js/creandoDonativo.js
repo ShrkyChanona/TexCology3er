@@ -4,26 +4,30 @@ window.addEventListener('load', (e) => {
     const fecha = new Date();
     let today = fecha.toLocaleDateString();
     let status = "Pendiente";
-    
+
     const id_donador = Number(JSON.parse(sessionStorage.infoUsuario).id_donador);
-    const tabla_donativos = { codigo_rastreo , today, status, id_donador  }
+    const tabla_donativos = { codigo_rastreo, today, status, id_donador }
     //sessionStorage.removeItem('infoUsuario')
-    
-        fetch('http://localhost:4000/api/texcology/crearDonativo', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify(tabla_donativos),
+
+    fetch('http://localhost:4000/api/texcology/crearDonativo', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(tabla_donativos),
+    })
+        .then(async (response) => {
+            if (response) {
+                const donativos = await response.json();
+                console.log(donativos)
+                console.log(donativos.insertId)
+                sessionStorage.donativos = JSON.stringify(donativos)
+                
+            }
         })
-            .then(async (response) => {
-                if (response) {
-                    const tabla_donativos = await response.json();
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 });
 
 //genera numeros de rastreo

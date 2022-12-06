@@ -6,7 +6,8 @@ exports.regisDonativos = (req, res) => {
     conn.query(`INSERT INTO texcology.donativos(fecha, codigo_rastreo ,estado,id_donador) VALUES('${today}','${codigo_rastreo}','${status}','${id_donador}');`, (err, result) => {
         res.setHeader('Access-Control-Allow-Origin', '*');
         console.log({message: 'donativo creado correctamente'});
-        res.send(JSON.stringify({message:'donativo creado correctamente'}));
+        console.log(result);
+        res.send(JSON.stringify(result));
     });
 };
 
