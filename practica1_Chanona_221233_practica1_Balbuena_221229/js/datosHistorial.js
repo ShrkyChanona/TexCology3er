@@ -1,7 +1,11 @@
 window.addEventListener('load',async(e) =>{
 
+    if(!sessionStorage.infoUsuario){
+        window.location.href = "../html/index.html";
+    }
+    
     const id_donador = Number(JSON.parse(sessionStorage.infoUsuario).id_donador);
-    const tabla_donativos = { id_donador  }
+    const tabla_donativos = { id_donador }
 
         fetch('http://localhost:4000/api/texcology/verDonativo', {
             method: 'POST', // or 'PUT'

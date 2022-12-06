@@ -4,6 +4,8 @@ window.addEventListener('load', (e) => {
     if(!sessionStorage.infoUsuario){
         window.location.href = "../html/index.html";
     }
+
+    
     //URL como parametro para transforarlo a objeto JSON
     const params = queryStringToJSON(window.location.search)
     //ahora params contiene toda la cadena de la url transformado en json
@@ -32,7 +34,8 @@ window.addEventListener('load', (e) => {
     fecha.innerHTML = fecha.innerHTML.replace('', `${dia}`);
 
     //----------------Registro de las prendas Superiores----------------
-
+    const id_donativo = Number(JSON.parse(sessionStorage.donativos).insertId);
+    console.log(id_donativo);
     //Camisetas
     let camisetas = document.querySelector("#camisetas"),
         camisetaTipo = document.querySelector("#camisetaTipo"),
@@ -44,7 +47,7 @@ window.addEventListener('load', (e) => {
         cTalla = params.camisetaTalla,
         cGen = params.camisetaGen;
 
-    const tabla_camiseta = { camisa, cTalla, cGen, cCantidad }
+    const tabla_camiseta = { camisa, cTalla, cGen, cCantidad, id_donativo }
     fetch('http://localhost:4000/api/texcology/registrarCamisas', {
         method: 'POST', // or 'PUT'
         headers: {
@@ -72,7 +75,7 @@ window.addEventListener('load', (e) => {
         aTipo = params.abrigoTipo.replace(RegEx, " "),
         aGen = params.abrigoGen;
 
-    const tabla_abrigos = { aCantidad, aTalla, aTipo, aGen }
+    const tabla_abrigos = { aCantidad, aTalla, aTipo, aGen, id_donativo }
     fetch('http://localhost:4000/api/texcology/registrarAbrigos', {
         method: 'POST', // or 'PUT'
         headers: {
@@ -98,7 +101,7 @@ window.addEventListener('load', (e) => {
         bluTipo = params.blusaTipo.replace(RegEx, " "),
         bluTalla = params.blusaTalla;
     
-        const tabla_blusas = { bluCantidad, bluTalla, bluTipo }
+        const tabla_blusas = { bluCantidad, bluTalla, bluTipo, id_donativo }
         fetch('http://localhost:4000/api/texcology/registrarBlusas', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -124,7 +127,7 @@ window.addEventListener('load', (e) => {
         vesTipo = params.vestidoTipo.replace(RegEx, " "),
         vesTalla = params.vestidoTalla;
 
-        const tabla_vestidos = { vesCantidad, vesTalla, vesTipo }
+        const tabla_vestidos = { vesCantidad, vesTalla, vesTipo, id_donativo }
         fetch('http://localhost:4000/api/texcology/registrarVestidos', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -153,7 +156,7 @@ window.addEventListener('load', (e) => {
         panTalla = params.pantalonTalla,
         panGen = params.pantalonGenero;
 
-        const tabla_pantalones = { panCantidad, panTalla, panGen, panTela }
+        const tabla_pantalones = { panCantidad, panTalla, panGen, panTela, id_donativo }
         fetch('http://localhost:4000/api/texcology/registrarPantalones', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -181,7 +184,7 @@ window.addEventListener('load', (e) => {
         shTela = params.shortTela,
         shGen = params.shortGenero;
     
-        const tabla_shorts = { shCantidad, shTalla, shGen, shTela }
+        const tabla_shorts = { shCantidad, shTalla, shGen, shTela, id_donativo }
         fetch('http://localhost:4000/api/texcology/registrarShorts', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -209,7 +212,7 @@ window.addEventListener('load', (e) => {
         calTipo = params.calzadoClasi,
         calPares = params.calzados;
 
-        const tabla_calzados = { calTalla, calGen, calTipo,calPares }
+        const tabla_calzados = { calTalla, calGen, calTipo,calPares, id_donativo }
         fetch('http://localhost:4000/api/texcology/registrarCalzados', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -233,7 +236,7 @@ window.addEventListener('load', (e) => {
     let acceCantidad= params.accesorios,
         acceTipo = params.acceClasi;
 
-        const tabla_accesorios = { acceTipo, acceCantidad }
+        const tabla_accesorios = { acceTipo, acceCantidad, id_donativo }
         fetch('http://localhost:4000/api/texcology/registrarAccesorios', {
             method: 'POST', // or 'PUT'
             headers: {
