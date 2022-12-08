@@ -4,7 +4,7 @@ window.addEventListener('load', (e) => {
     if(!sessionStorage.infoUsuario){
         window.location.href = "../html/index.html";
     }
-
+    datosDonativo();
     
     //URL como parametro para transforarlo a objeto JSON
     const params = queryStringToJSON(window.location.search)
@@ -12,26 +12,27 @@ window.addEventListener('load', (e) => {
     console.log(params);
 
     let nombre = document.querySelector("#nombre"),
-        correo = document.querySelector("#correo"),
+        codGuia = document.querySelector("#codGuia"),
         sucursal = document.querySelector("#sucursal"),
         fecha = document.querySelector("#fecha");
         comentario = document.querySelector("#comentario");
 
-    let nombreCompleto = params.nombre + " " + params.apellido;
-
     //indica el caracter que remplazara
     const RegEx = /[+]/g
     //remplaza todos los caracteres '+' por un espacio
-    let donante = nombreCompleto.replace(RegEx, " "),
-        email = params.correo.replace(RegEx," "),
-        lugar = params.sucursales.replace(RegEx, " "),
+    let lugar = params.sucursales.replace(RegEx, " "),
         dia = params.fecha.replace(RegEx, " ");
         mensaje = params.comentario.replace(RegEx," ");
 
+    const nombreReal = JSON.parse(sessionStorage.infoUsuario).nombre;
+    const apellidoReal = JSON.parse(sessionStorage.infoUsuario).apellido;
+    const codRastreo = JSON.parse(localStorage.getItem('donativoActual')).codigo_rastreo;
+    console.log(codRastreo);
 
-    nombre.innerHTML = nombre.innerHTML.replace('', `${donante}` || 'sin nombres');
+    nombre.innerHTML = `${nombreReal} ${apellidoReal}.`;
     sucursal.innerHTML = sucursal.innerHTML.replace('', `${lugar}`);
     fecha.innerHTML = fecha.innerHTML.replace('', `${dia}`);
+    codGuia.innerHTML = codRastreo;
 
     //----------------Registro de las prendas Superiores----------------
     const id_donativo = Number(JSON.parse(sessionStorage.donativos).insertId);
@@ -265,4 +266,28 @@ function queryStringToJSON(queryString) {
         result[pair[0]] = decodeURIComponent(pair[1] || ''); //el primer elemento
     });
     return result;
+}
+
+function datosDonativo(){
+    
+    const id_donador = Number(JSON.parse(sessionStorage.infoUsuario).id_donador);
+    const tabla_donativos = { id_donador }
+    fetch('http://localhost:4000/api/texcology/verDonativo', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(tabla_donativos),
+    })
+        .then(async (response) => {
+            if (response) {
+                const donativoLista = await response.json();
+                console.log(donativoLista.length);
+                localStorage.setItem('donativoActual',JSON.stringify(donativoLista.pop()));
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
 }

@@ -11,7 +11,7 @@
 }
 
 body {
-	background: #f8fafb;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/img/about-bg.jpg");
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -22,7 +22,6 @@ main {
 }
 
 .titulo {
-	color: #3a3a3a;
 	font-weight: 700;
 	text-align: center;
 	margin: 60px 0;

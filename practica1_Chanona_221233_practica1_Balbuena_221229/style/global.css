@@ -1,3 +1,7 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/about-bg.jpg");
+}
+
 a{
     color: blue;
     text-decoration: none;
@@ -24,6 +28,10 @@ a{
     margin-left: 70%;
     width: 22%;
     height: 22%;
+}
+
+.colorsito{
+    color: #dbfaed;
 }
 
 .text{

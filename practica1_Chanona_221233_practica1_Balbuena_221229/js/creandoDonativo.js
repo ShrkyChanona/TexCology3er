@@ -1,5 +1,31 @@
 
 window.addEventListener('load', (e) => {
+    
+    datosContacto();
+    let nombre = document.getElementById("nombre");
+    nombre.addEventListener('change', (event) => {
+        const nombreReal = JSON.parse(sessionStorage.infoUsuario).nombre;
+        const userName = JSON.parse(sessionStorage.infoUsuario).username;
+        let valor = nombre.options[nombre.selectedIndex].text;
+        if(valor == "Anonimo"){
+            document.querySelector("#apellido").disabled = "true";
+            document.querySelector("#correo").disabled = "true";
+            document.querySelector("#apellido").value = " ";
+            document.querySelector("#correo").value = " ";
+        }
+        if(valor == nombreReal){
+            document.querySelector("#apellido").disabled = "";
+            document.querySelector("#correo").disabled = "";
+            datosContacto()
+        }
+        if(valor == userName){
+            document.querySelector("#correo").disabled = ""
+            datosContacto()
+            document.querySelector("#apellido").value = " ";
+            document.querySelector("#apellido").disabled = "true";
+        }
+    });
+
     const codigo_rastreo = generarGuia();
     const fecha = new Date();
     let today = fecha.toLocaleDateString();
@@ -19,9 +45,9 @@ window.addEventListener('load', (e) => {
         .then(async (response) => {
             if (response) {
                 const donativos = await response.json();
-                console.log(donativos)
-                console.log(donativos.insertId)
-                sessionStorage.donativos = JSON.stringify(donativos)
+                console.log(donativos);
+                console.log(donativos.insertId);
+                sessionStorage.donativos = JSON.stringify(donativos);
                 
             }
         })
@@ -55,4 +81,16 @@ function generarGuia() {
     }
 
     return codigoGuia;
+}
+
+function datosContacto(){
+    const userName = JSON.parse(sessionStorage.infoUsuario).username;
+    const nombreReal = JSON.parse(sessionStorage.infoUsuario).nombre;
+    const apellidoReal = JSON.parse(sessionStorage.infoUsuario).apellido;
+    const email = JSON.parse(sessionStorage.infoUsuario).correo;
+    
+    document.querySelector("#usuario").innerHTML = userName;
+    document.querySelector("#nombreReal").innerHTML = nombreReal;
+    document.querySelector("#apellido").value = apellidoReal;
+    document.querySelector("#correo").value = email;
 }
