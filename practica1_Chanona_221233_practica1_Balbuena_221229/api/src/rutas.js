@@ -21,6 +21,7 @@ router.post('/registrarUsuario', jsonParser, registers.registers);
 //Donativos
 router.post('/crearDonativo', jsonParser, donativos.regisDonativos);
 router.post('/verDonativo', jsonParser, donativos.verDonativos);
+router.post('/buscarDonativo', jsonParser, donativos.buscarDonativo);
 
 //prendas superiores
 router.post('/registrarCamisas', jsonParser, prendasS.regisCamisetas);

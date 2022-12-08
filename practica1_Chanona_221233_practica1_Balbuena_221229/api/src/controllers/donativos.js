@@ -16,6 +16,16 @@ exports.verDonativos = (req,res) =>{
     conn.query(`SELECT * FROM texcology.donativos WHERE id_donador = '${id_donador}'; `, (err, result) => {
         res.setHeader('Access-Control-Allow-Origin', '*');
         console.log({message: 'donativo devuelto correctamente'});
-        res.send(JSON.stringify(result))
+        console.log(result);
+        res.send(JSON.stringify(result));
     });
 }
+
+exports.buscarDonativo = (req, res) =>{
+    const { guia } = req.body;
+    conn.query(`SELECT * FROM texcology.donativos WHERE codigo_rastreo = '${guia}'; `, (err, result) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        console.log({message: 'guia encontrada'});
+        res.send(JSON.stringify(result))
+    });
+};

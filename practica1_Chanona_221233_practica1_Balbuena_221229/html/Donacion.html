@@ -35,37 +35,42 @@
         <div class="container">
             <div class="row justify-content-center titulo-registro">
                 <div class="col-5">
-                    <h1>****Registra tu Donación****</h1>
-                    <h4 class="text-center">Los datos son necesarios para la autenticación del usuario</h4>
+                    <h1 class="colorsito">****Registra tu Donación****</h1>
+                    <h4 class="text-center colorsito">Los datos son necesarios para la autenticación del usuario</h4>
                 </div>
             </div>
             <form action="Ficha.html" name="Donacion" id="Donacion">
                 <div class="row">
                     <div class="col-6">
-                        <h2 class="text-center">Datos del contacto:</h2>
+                        <h2 class="text-center colorsito">Datos del contacto:</h2>
                         <div class="row text-center campos-cap2">
                             <label>
-                                <b>Nombre(s)</b><br>
-                                <input type="text" name="nombre" class="text-center">
+                                <b class="colorsito">Nombre(s)</b><br>
+                                <select name="nombre" id="nombre" class=" campos-bg borde text-center">
+                                    <option value="" id="nombreReal"></option>
+                                    <option value="" id="usuario"></option>
+                                    <option value="">Anonimo</option>
+                                </select>
+                                <!-- <input type="text" name="nombre" class="text-center"> -->
                             </label>
                         </div>
                         <div class="row text-center campos-cap2">
                             <label>
-                                <b class="">Apellido(s)</b> <br>
-                                <input type="text" name="apellido" class="text-center">
+                                <b class="colorsito">Apellido(s)</b><br>
+                                <input type="text" name="apellido" id="apellido" class="text-center">
                             </label>
                         </div>
                         <div class="row text-center campos-cap2">
                             <label>
                                 <label>
-                                    <b>Correo electronico</b> <br>
-                                    <input type="email" name="correo" class="text-center">
+                                    <b class="colorsito">Correo electronico</b> <br>
+                                    <input type="email" name="correo" id="correo" class="text-center">
                                 </label>
                             </label>
                         </div>
                     </div>
                     <div class="col-6">
-                        <h2 class="text-center">Datos de las prendas</h2>
+                        <h2 class="text-center colorsito">Datos de las prendas</h2>
                         <div class="row text-center">
                             <div class="col-4">
                                 <label>
@@ -553,8 +558,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary"
-                                                        data-bs-dismiss="modal">Listo
-                                                    </button>
+                                                        data-bs-dismiss="modal">Listo</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -567,7 +571,7 @@
                         <div class="row campos-cap text-center">
                             <div class="col-3 camp-sucursal">
                                 <label>
-                                    <b>Sucursal</b>
+                                    <b class="colorsito">Sucursal</b>
                                     <select name="sucursales" class="text-center borde campos-bg">
                                         <option></option>
                                         <option>TexCology 5 de mayo</option>
@@ -576,9 +580,9 @@
                                     </select>
                                 </label>
                             </div>
-                            <div class="col-3 campo-fecha">
+                            <div class="col-4 campo-fecha">
                                 <label>
-                                    <b>Fecha de envio</b>
+                                    <b class="colorsito">Fecha de asistencia</b>
                                     <input type="date" name="fecha" id="fecha" class="text-center">
                                 </label>
                             </div>
@@ -587,7 +591,7 @@
                         <div class="row text-center campos-cap">
                             <div class="col">
                                 <label>
-                                    <b>Comentario adicional</b><br>
+                                    <b class="colorsito">Comentario adicional</b><br>
                                     <textarea name="comentario" cols="30" rows="10"
                                         class="camp-mensaje text-center borde campos-bg"
                                         placeholder="Acompaña tu donativo con un mensaje para quien lo reciba"></textarea>
